@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
 
-import { Home, Products, SingleProduct,About,Cart,Error,Checkout,PrivateRoute } from './pages'
+import { Home, Products, SingleProduct,About,Cart,Error,Checkout,PrivateRoute, AuthWrapper } from './pages'
 
  
 function App() {
@@ -13,6 +13,9 @@ function App() {
     <Switch>
       <Route exact path='/'>
         <Home />
+      </Route>
+      <Route exact path='/auth'>
+        <AuthWrapper />
       </Route>
       <Route exact path='/about'>
         <About />
