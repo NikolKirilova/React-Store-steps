@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
 import { useCartContext } from '../context/cart_context'
-import { useUserContext } from '../context/user_context'
+import AuthContext from '../context/auth_context'
+// import { useUserContext } from '../context/user_context'
 
 const CartButtons = () => {
+
+  const authCtx = useContext(AuthContext);
+
+  const isLoggedIn = authCtx.isLoggedIn;
+
   const { closeSidebar } = useProductsContext();
   const {total_items} = useCartContext();
   return <Wrapper className="cart-btn-wrapper">
@@ -17,17 +23,37 @@ const CartButtons = () => {
         <span className='cart-value'>{total_items}</span>
       </span>
     </Link>
-    <button type="button" className="auth-btn">
+    <div className="auth-wrapper"> 
+    {!isLoggedIn && ( <Link to='/auth' className="auth-btn">Login <FaUserPlus /></Link>
+
+    )}
+    { isLoggedIn && ( <Link to='/profile' className="auth-btn">Profile</Link>
+
+    )}
+     { isLoggedIn && ( <button type="button" className="auth-btn">Logout</button>)
+     }
+     
+     
+     
+    </div>
+    {/* <button type="button" className="auth-btn">
       Login <FaUserPlus />
-    </button>
+    </button> */}
   </Wrapper>
 }
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  width: 225px;
+  display: flex;
+  // grid-template-columns: 1fr 1fr;
+  justify-content:space-between;
+  // align-items: center;
+  width: 300px;
+
+  .auth-wrapper{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+  }
 
   .cart-btn {
     color: var(--clr-grey-1);
