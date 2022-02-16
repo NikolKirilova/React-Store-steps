@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Navbar, Sidebar, Footer, UserProfile } from './components'
+import { Navbar, Sidebar, Footer, UserProfile, AuthForm } from './components'
 import AuthContext from './context/auth_context'
 import { Redirect } from 'react-router-dom'
 
-import { Home, Products, SingleProduct,About,Cart,Error,Checkout,PrivateRoute, AuthWrapper  } from './pages'
+import { Home, Products, SingleProduct,About,Cart,Error,Checkout } from './pages'
 
  
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Home />
       </Route>
       {!authCtx.isLoggedIn && (<Route path='/auth'>
-          <AuthWrapper />
+          <AuthForm />
         </Route>
         )}
         <Route path='/profile'>
