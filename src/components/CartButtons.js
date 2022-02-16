@@ -13,6 +13,10 @@ const CartButtons = () => {
 
   const isLoggedIn = authCtx.isLoggedIn;
 
+  const logoutHandler = () => {
+    authCtx.logout();
+  }
+
   const { closeSidebar } = useProductsContext();
   const {total_items} = useCartContext();
   return <Wrapper className="cart-btn-wrapper">
@@ -30,7 +34,7 @@ const CartButtons = () => {
     { isLoggedIn && ( <Link to='/profile' className="auth-btn">Profile</Link>
 
     )}
-     { isLoggedIn && ( <button type="button" className="auth-btn">Logout</button>)
+     { isLoggedIn && ( <button type="button" className="auth-btn" onClick={logoutHandler}>Logout</button>)
      }
      
      
