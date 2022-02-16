@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Navbar, Sidebar, Footer } from './components'
+import { Navbar, Sidebar, Footer, UserProfile } from './components'
+import AuthContext from './context/auth_context'
+import { Redirect } from 'react-router-dom'
 
-import { Home, Products, SingleProduct,About,Cart,Error,Checkout,PrivateRoute, AuthWrapper } from './pages'
+import { Home, Products, SingleProduct,About,Cart,Error,Checkout,PrivateRoute, AuthWrapper  } from './pages'
 
  
 function App() {
+
+  const authCtx = useContext(AuthContext)
   return (
   <Router>
     <Navbar />
@@ -14,9 +18,15 @@ function App() {
       <Route exact path='/'>
         <Home />
       </Route>
-      <Route exact path='/auth'>
-        <AuthWrapper />
-      </Route>
+      {!authCtx.isLoggedIn && (<Route path='/auth'>
+          <AuthWrapper />
+        </Route>
+        )}
+        <Route path='/profile'>
+      {authCtx.isLoggedIn && <UserProfile />}
+      {!authCtx.isLoggedIn && <Redirect to='/auth'/>    }       
+        </Route>
+       
       <Route exact path='/about'>
         <About />
       </Route>
