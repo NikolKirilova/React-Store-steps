@@ -6,6 +6,7 @@ import AuthContext from "../context/auth_context";
 
 const AuthForm = () => {
   const history = useHistory();
+  const nameInputRef = useRef();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -22,6 +23,7 @@ const AuthForm = () => {
     event.preventDefault();
 
     const enteredEmail = emailInputRef.current.value;
+    const enteredName = nameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
     //add validation
@@ -38,6 +40,7 @@ const AuthForm = () => {
           body: JSON.stringify({
             email: enteredEmail,
             password: enteredPassword,
+            name: enteredName,
             returnSecureToken: true,
           }),
           headers: {
@@ -79,6 +82,10 @@ const AuthForm = () => {
       <section className="auth">
         <h1>{isLogin ? "Login" : "Sign Up"}</h1>
         <form onSubmit={submitHandler}>
+        <div className="control">
+            <label htmlFor="name">Your Name</label>
+            <input type="text" id="name" required ref={nameInputRef} />
+          </div>
           <div className="control">
             <label htmlFor="email">Your Email</label>
             <input type="email" id="email" required ref={emailInputRef} />
