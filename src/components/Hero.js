@@ -3,21 +3,25 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import heroBcg from '../assets/hero-bcg.jpeg'
 import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+import heroMain from '../assets/hero-main.png'
 
 const Hero = () => {
-  return <Wrapper className="section-center">
+  return <Wrapper className="section-full-width">
     <article className='content'>
+      <div className="content-wrapper">
       <h1>
-        design your <br/>
-        comfort zone
+        NEW <br/>
+        ERA
       </h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut et sint quod odit repellat ullam impedit similique, suscipit earum omnis!F
+        MLB Wild Camo
       </p>
       <Link to='/products' className="btn hero-btn">
-        shop now
+        New Collection
       </Link>
+      </div>
     </article>
+
     <article className='img-container'>
       <img src={heroBcg} alt="nice table" className="main-img"/>
       <img src={heroBcg2} alt="person working" className="accent-img"/>
@@ -28,8 +32,8 @@ const Hero = () => {
 
 const Wrapper = styled.section`
   min-height: 60vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  background-color:#D7D5CA;
   .img-container {
     display: none;
   }
@@ -41,10 +45,28 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
     font-size: 1rem;
   }
+  .content{
+    color:#514633;    
+    flex:0 0 50%;
+    height:100%;
+    position:relative;
+  }
+  .img-container{
+    flex: 0 0 50%;
+  }
+  
+  h1{
+    font-size:13rem;
+  }
   @media (min-width: 992px) {
     height: calc(100vh - 5rem);
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    position:relative;
+     .content-wrapper{
+      position: absolute;
+      top: 20%;
+      left:15%;
+     }
+  
     h1 {
       margin-bottom: 2rem;
     }

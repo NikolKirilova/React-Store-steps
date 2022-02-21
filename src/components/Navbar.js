@@ -1,46 +1,69 @@
-import React from 'react'
-import styled from 'styled-components'
-import logo from '../assets/logo.svg'
-import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import { links } from '../utils/constants'
-import CartButtons from './CartButtons'
-import { useProductsContext } from '../context/products_context'
+import React from "react";
+import styled from "styled-components";
+import logo from "../assets/logo.svg";
+import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { links } from "../utils/constants";
+import CartButtons from "./CartButtons";
+import { useProductsContext } from "../context/products_context";
+import MenuItems from "./MenuItems";
 // import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
-  const {openSidebar} = useProductsContext();
-  return <NavContainer> 
-    <div className="nav-center">
-      <div className="nav-header">
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-        <button type='button' className="nav-toggle" onClick={openSidebar}>
-           <FaBars />
-        </button>
+  const { openSidebar } = useProductsContext();
+  return (
+    <NavContainer>
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
+            <FaBars />
+          </button>
+        </div>
+        <ul className="nav-links">
+          {links.map((link, index) => {
+            // const {id,text,url,submenu} = link
+            return (
+              <MenuItems items={link} key={index} />
+              // <li key={id}>
+              //   <Link to={url}>{text}</Link>
+              // </li>
+            );
+          })}
+        </ul>
+        <CartButtons />
       </div>
-      <ul className="nav-links">
-        {links.map((link)=>{
-          const {id,text,url} = link
-          return ( 
-            <li key={id}>
-              <Link to={url}>{text}</Link>
-            </li>
-          )
-        }        
-        )}
-      </ul>
-      <CartButtons/>
-    </div>
     </NavContainer>
-}
+  );
+};
 
 const NavContainer = styled.nav`
   height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #000;
+  color: #fff;
+
+  .dropdown {
+    display: none;
+  }
+
+  .dropdown.show {
+    display: block;
+    position: absolute;
+    top: 70px;
+    .submenu-items {
+      padding: 4px 0;
+      background-color: #685353;
+    }
+  }
+
+  .menu-items {
+    padding: 20px 0;
+  }
 
   .nav-center {
     width: 90vw;
@@ -83,24 +106,36 @@ const NavContainer = styled.nav`
     .nav-links {
       display: flex;
       justify-content: center;
-      li {
-        margin: 0 0.5rem;
-      }
-      a {
-        color: var(--clr-grey-3);
-        font-size: 1rem;
-        text-transform: capitalize;
-        letter-spacing: var(--spacing);
-        padding: 0.5rem;
-        &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
-        }
-      }
+      position: relative;
     }
+    .nav-links<li {
+      margin: 0 0.5rem;
+    }
+    .menu-items > a {
+      color: #fff;
+      font-size: 16px;
+      text-transform: capitalize;
+      font-weight: 600;
+      padding: 20px 10px;
+    }
+   
+
+    .menu-items > a:hover {
+      border-bottom: 2px solid var(--clr-primary-7);
+    }
+
+    .submenu-items > a {
+      color: #fff;
+      font-size: 16px;
+      text-transform: capitalize;
+      font-weight: 600;
+      padding: 20px 10px;
+    }
+
     .cart-btn-wrapper {
-      display: grid;
+      display: flex;
     }
   }
-`
+`;
 
-export default Nav
+export default Nav;

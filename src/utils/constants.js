@@ -10,11 +10,27 @@ export const links = [
     id: 2,
     text: 'about',
     url: '/about',
+    submenu: [
+      {
+        title: "more about us"
+      },
+      {
+        title: "our goals"
+      }
+    ]
   },
   {
     id: 3,
     text: 'products',
     url: '/products',
+    submenu: [
+      {
+        title: "more about us"
+      },
+      {
+        title: "our goals"
+      }
+    ]
   },
   {
     id: 4,
