@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
 import styled from 'styled-components'
-import { Link } from 'react-router-dom' 
-import heroMain from '../assets/hero-main.png'
+import homeAbout from '../assets/mea-theheadwearhome.jpg'
+import { Link } from "react-router-dom";
+const HomeAbout = () => {
+    return <Wrapper className="section-full-width">
 
-const Hero = () => {
-  return <Wrapper className="section-full-width">
+     <article className='img-container'>
+      <img src={homeAbout} alt="nice table" className="main-img"/>      
+    </article>    
     <article className='content'>
       <div className="content-wrapper">
       <h1>
@@ -20,11 +23,7 @@ const Hero = () => {
       </div>
     </article>
 
-    <article className='img-container'>
-      <img src={heroMain} alt="nice table" className="main-img"/>
-       
-
-    </article>
+   
   </Wrapper>
 }
 
@@ -156,5 +155,6 @@ const Wrapper = styled.section`
    
   }
 `
+ 
 
-export default Hero
+export default HomeAbout;

@@ -19,6 +19,9 @@ import PageHero from './PageHero'
 import StripeCheckout from './StripeCheckout'
 import UserProfile from './UserProfile'
 import AuthForm from './AuthForm'
+import BestProducts from './BestProducts'
+import TradeMarks from './TradeMarks'
+import HomeAbout from './HomeAbout'
 export {
   FeaturedProducts,
   Navbar,
@@ -41,4 +44,7 @@ export {
   StripeCheckout,
   UserProfile,
   AuthForm,
+  BestProducts,
+  TradeMarks,
+  HomeAbout,
 }
