@@ -10,16 +10,26 @@ const HomeAbout = () => {
     </article>    
     <article className='content'>
       <div className="content-wrapper">
-      <h1>
-        NEW <br/>
-        ERA
+        <div className="title-wrapper">
+        <h1>
+        THE <br/>
+        HEADWEAR <br/>
+        HOME
       </h1>
+        </div>
+    <div className="text-wrapper">
+
+      <h2>Welcome, we are Headict </h2>
       <h3>
-        MLB Wild Camo
+      !We are the reference online <br/>
+       store "headwear<br/>
+        addicts".Discover our history & <br/>
+        our team of enthusiasts!<br/>
       </h3>
-      <Link to='/products' className="btn btn-outline-white">
-        New Collection
+      <Link to='/products' className="btn btn-outline-red">
+        Who are we?
       </Link>
+    </div>
       </div>
     </article>
 
@@ -31,6 +41,7 @@ const Wrapper = styled.section`
   min-height: 60vh;
   display: flex;
   background-color:#D7D5CA;
+  height:auto;
   .img-container {
     display: none;
   }
@@ -43,7 +54,8 @@ const Wrapper = styled.section`
     font-size: 1rem;
   }
   .content{
-    color:#514633;    
+    color:#ea534b;
+    background-color: #e7d0b2;  
     flex:0 0 50%;
     height:100%;
     position:relative;
@@ -53,21 +65,33 @@ const Wrapper = styled.section`
   }
   
   h1{
-    font-size:12rem;
+    font-size: 7rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: #f5554c 2px;
+  }
+  h3{
+    letter-spacing:0.5px;
+    margin-bottom: 1.2rem;
   }
   @media (min-width: 992px) {
-    height: calc(100vh - 5rem);
+ 
     position:relative;
+
+    .content{
+      width:100%;
+    }
 
     .content-wrapper{
     position: absolute;
-    top: 16%;
-    left:16%;
-    -webkit-animation: slideUp 0.8s;
-      -moz-animation: slideUp 0.8s;
-      animation-delay:1.6s;
-      animation: slideUp 0.8s;
+    top: 7%;
+    left:-13%;
+    width:100%;    
      }
+
+    .text-wrapper{
+      margin-left:20%;
+      margin-top:40px;
+    }
   
     h1 {
       margin-bottom: 1rem;
@@ -80,62 +104,9 @@ const Wrapper = styled.section`
     }
     .img-container {
       display: block;
-      position: relative;
-      -webkit-animation: slideIn 0.8s;
-      -moz-animation: slideIn 0.8s;
-      animation: slideIn 0.8s;
-       
+      position: relative;      
     }
-
-    @-webkit-keyframes slideUp {
-      0% {
-        transform: translateY(900px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-    @-moz-keyframes slideUp {
-      0% {
-        transform: translateY(900px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-    @keyframes slideUp {
-      0% {
-        transform: translateY(900px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    @-webkit-keyframes slideIn {
-      0% {
-        transform: translateX(900px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-    @-moz-keyframes slideIn {
-      0% {
-        transform: translateX(900px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-    @keyframes slideIn {
-      0% {
-        transform: translateX(900px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
+    
     .main-img {
       width: 100%;
       height: 100%;
