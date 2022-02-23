@@ -22,6 +22,10 @@ import AuthForm from './AuthForm'
 import BestProducts from './BestProducts'
 import TradeMarks from './TradeMarks'
 import HomeAbout from './HomeAbout'
+import HomeCollection from './HomeCollection'
+import HomeBlog from './HomeBlog'
+import HomeEditorial from './HomeEditorial'
+import HomeEditorialLeft from './HomeEditorialLeft'
 export {
   FeaturedProducts,
   Navbar,
@@ -47,4 +51,8 @@ export {
   BestProducts,
   TradeMarks,
   HomeAbout,
+  HomeCollection,
+  HomeBlog,
+  HomeEditorial,
+  HomeEditorialLeft,
 }

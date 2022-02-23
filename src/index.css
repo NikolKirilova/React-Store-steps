@@ -82,7 +82,7 @@ h3,
 h4,
 h5 {
   letter-spacing: var(--spacing);
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   line-height: 1.25;
   margin-bottom: 0.75rem;
 }
@@ -185,13 +185,22 @@ h5 {
 .btn-outline-white{
   border-color: #514633;
     color: #514633;
-    /* background-color: #fff; */
     border:2px solid;
 }
 .btn-outline-white:hover{
   border-color: #514633;
     color: #fff;
     background-color: #514633;
+}
+.btn-outline-red{
+  border-color: #ea534b;
+    color: #ea534b;
+    border:2px solid;
+}
+.btn-outline-red:hover{
+  border-color: #ea534b;
+    color: #fff;
+    background-color: #ea534b;
 }
 .title {
   text-align: center;
