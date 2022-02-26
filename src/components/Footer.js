@@ -15,18 +15,18 @@ const Footer = () => {
       <div className="store-information">
         <h3>STORE INFORMATION</h3>
         <p>Monday to Friday from 9am to 12pm and from 2pm to 5pm</p>
-        <p>Or <Link className='contact-form-link'>contact us </Link> <br/> online contact form</p>
-        <Link className='blog-link'>Blog</Link>
+        <p>Or <Link className='contact-form-link' to='/'>contact us </Link> <br/> online contact form</p>
+        <Link className='blog-link' to='/'>Blog</Link>
       </div>
       <div className="information">
         <h3>INFORMATION</h3>
-        <Link>DELIVERY</Link>
-        <Link>LEGAL NOTICE</Link>
-        <Link>TERMS AND CONDITIONS OF USE</Link>
-        <Link>ABOUT US</Link>
-        <Link>SECURE PAYMENT</Link>
-        <Link>EASY RETURNS AND EXCHANGE</Link>
-        <Link>ARCHIVE</Link>
+        <Link to='/'>DELIVERY</Link>
+        <Link to='/'>LEGAL NOTICE</Link>
+        <Link to='/'>TERMS AND CONDITIONS OF USE</Link>
+        <Link to='/'>ABOUT US</Link>
+        <Link to='/'>SECURE PAYMENT</Link>
+        <Link to='/'>EASY RETURNS AND EXCHANGE</Link>
+        <Link to='/'>ARCHIVE</Link>
       </div>
      
       <div className='sign-up'>

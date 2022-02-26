@@ -54,7 +54,7 @@ const NavContainer = styled.nav`
   .dropdown.show {
     display: block;
     position: absolute;
-    top: 70px;
+    top: 65px;
     .submenu-items {
       padding: 4px 0;
       background-color: #685353;
@@ -120,9 +120,9 @@ const NavContainer = styled.nav`
     }
    
 
-    .menu-items > a:hover {
-      border-bottom: 2px solid var(--clr-primary-7);
-    }
+    // .menu-items > a:hover {
+    //   border-bottom: 2px solid var(--clr-primary-7);
+    // }
 
     .submenu-items > a {
       color: #fff;
