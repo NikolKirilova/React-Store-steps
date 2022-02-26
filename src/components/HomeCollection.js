@@ -4,7 +4,6 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import {Link} from 'react-router-dom';
-import firstImage from "../assets/goal.jpg";
 import secondImage from "../assets/goal.jpg";
 import thirdImage from "../assets/curve-amour02.jpg";
 import fourImage from "../assets/mea-headict-collection-03.jpg";

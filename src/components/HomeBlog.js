@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import blogImage from "../assets/mea-mag.jpg";
 import { Link } from "react-router-dom";
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight} from "react-icons/bs";
 
 const HomeBlog = () => {
   return (
