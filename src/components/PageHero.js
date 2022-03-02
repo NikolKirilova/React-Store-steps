@@ -1,35 +1,44 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-const PageHero = ({title,product,image}) => {
+import heroImage from "../assets/hero.jpg";
+// import Breadcrumbs from './Breadcrumbs'
+const PageHero = ({title,product}) => {
   return <Wrapper>
     <div className="section-center link-wrapper">
       <h3>
         <Link to='/'>Home</Link>
         {product && <Link to='/products'>/ Products </Link>}/ {title}
+        {/* {product && <Breadcrumbs title={title} />} */}
+         
       </h3>
     </div>
     <div className="hero-image">
-    <img src={image} alt={title} />
+    <img src={heroImage} alt={title} />
     </div>
   </Wrapper>
 }
 
 const Wrapper = styled.section`
-  background: var(--clr-primary-10);
+  background: #917459;
   width: 100%;
   min-height: 20vh;
   display: flex;
   justify-content:center;
   align-items: center;
+  color:#fff;
 
   .link-wrapper, .hero-image{
     flex: 0 0 50%;
   }
 
-  color: var(--clr-primary-1);
+  .hero-image img{
+    width:100%;
+  }
+
+  
   a {
-    color: var(--clr-primary-3);
+    color: #fff;
     padding: 0.5rem;
     transition: var(--transition);
   }

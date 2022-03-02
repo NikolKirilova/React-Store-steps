@@ -1,28 +1,39 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const ProductImages = ({images=[{url:''}]}) => {
-  const [main, setMain] = useState(images[0])
+// const ProductImages = ({images=[{url:''}]}) => {
+const ProductImages = ({images}) => {
+
+  // const [main, setMain] = useState(images[0])
   // console.log(main)
   return <Wrapper>
-     <img src={main.url} alt="main" className='main'/>
-     <div className="gallery">
-       {images.map((image,index)=>{
-         return (
-         <img src={image.url}
-          alt={image.filename} 
-         key={index}
-          onClick={() => setMain(images[index])}
-          className={`${image.url === main.url ? 'active' : 'null'}`}/>
-         )
-       })}
-     </div>
+     <img src={ images} alt="main" className='main'/>
+   
   </Wrapper>
 }
 
+// const ProductImages = ({images=[{url:''}]}) => {
+//   const [main, setMain] = useState(images[0])
+//   // console.log(main)
+//   return <Wrapper>
+//      <img src={main.url} alt="main" className='main'/>
+//      <div className="gallery">
+//        {images.map((image,index)=>{
+//          return (
+//          <img src={image.url}
+//           alt={image.filename} 
+//          key={index}
+//           onClick={() => setMain(images[index])}
+//           className={`${image.url === main.url ? 'active' : 'null'}`}/>
+//          )
+//        })}
+//      </div>
+//   </Wrapper>
+// }
+
 const Wrapper = styled.section`
   .main {
-    height: 600px;
+    height: auto;
   }
   img {
     width: 100%;
@@ -55,7 +66,7 @@ const Wrapper = styled.section`
   }
   @media (min-width: 992px) {
     .main {
-      height: 500px;
+      height: auto;
     }
     .gallery {
       img {

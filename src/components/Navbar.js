@@ -10,7 +10,7 @@ import MenuItems from "./MenuItems";
 // import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
-  const { openSidebar } = useProductsContext();
+  const { openSidebar } = useProductsContext();   
   return (
     <NavContainer>
       <div className="nav-center">
