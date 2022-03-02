@@ -8,7 +8,14 @@ import AmountButtons from "./AmountButtons";
 const AddToCart = ({ product }) => {
   const {addToCart} = useCartContext();
   const { id, stock, colors } = product;
-  // console.log(colors);
+  console.log(colors);
+  let colorsar= colors.split(', ');
+  console.log(colorsar);
+
+  
+  // console.log(allColors);
+  console.log(stock);
+  console.log(product);
   const [mainColor, setMainColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
@@ -37,7 +44,7 @@ const AddToCart = ({ product }) => {
       <div className="colors">
         <span> colors: </span>
         <div>
-          {colors.map((color, index) => {
+          {colorsar.map((color, index) => {
             return (
               <button
                 key={index}
@@ -61,7 +68,7 @@ const AddToCart = ({ product }) => {
         />
         <Link
          to="/cart" 
-         className="btn" 
+         className="btn add-cart" 
          onClick={()=>addToCart(id,mainColor,amount,
          product)}>
           add to cart
