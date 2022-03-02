@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { Link } from 'react-router-dom'
 const ListView = ({products}) => {
+  
   return <Wrapper>
     {products.map((product)=>{
       const {id,image,name,price,description} = product;
+      console.log(product.id)
       return <article key={id}>
         <img src={image} alt={name} />
         <div>
@@ -29,7 +31,7 @@ const Wrapper = styled.section`
     width: 100%;
     display: block;
     width: 300px;
-    height: 200px;
+    height: 310px;
     object-fit: cover;
     border-radius: var(--radius);
     margin-bottom: 1rem;
