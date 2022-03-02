@@ -67,4 +67,6 @@ export const services = [
 // export const products_url = 'http://127.0.0.1:8000/products'
 export const products_url = 'https://online-store-f849d-default-rtdb.europe-west1.firebasedatabase.app/products.json'
 
-export const single_product_url = `https://course-api.com/react-store-single-product?id=`
+// export const single_product_url = `https://course-api.com/react-store-single-product?id=`
+// export const single_product_url = `https://online-store-f849d-default-rtdb.europe-west1.firebasedatabase.app/products.json`
+export const single_product_url = `http://127.0.0.1:8000/api/products/`

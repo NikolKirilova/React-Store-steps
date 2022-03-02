@@ -26,6 +26,7 @@ import HomeCollection from './HomeCollection'
 import HomeBlog from './HomeBlog'
 import HomeEditorial from './HomeEditorial'
 import HomeEditorialLeft from './HomeEditorialLeft'
+import Breadcrumbs from './Breadcrumbs'
 export {
   FeaturedProducts,
   Navbar,
@@ -55,4 +56,5 @@ export {
   HomeBlog,
   HomeEditorial,
   HomeEditorialLeft,
+  Breadcrumbs
 }
