@@ -28,7 +28,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
-    // console.log(product);
+    console.log(product);
 
   },[id])
 

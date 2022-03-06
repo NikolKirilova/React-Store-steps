@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues, formatPrice } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
+ 
 
 const Filters = () => {
   const {filters:{
@@ -55,8 +56,25 @@ const colors = getUniqueValues(all_products, 'colors')
           </div>
         </div>
         {/*end of categories */}
+              {/*brands */}
+              <div className="form-control">
+          <h5>Brands</h5>
+          <div className="brands-form">
+            {companies.map((c, index) => {
+              return <button key={index}
+              onClick={updateFilters}
+              type="button"
+              name="company"
+              className={`${
+                category === c.toLowerCase() ? 'active' : null
+              }`}
+              >{c}</button>
+            })}
+          </div>
+        </div>
+        {/*end of categories */}
         {/*companies*/}
-            <div className="form-control">
+            {/* <div className="form-control">
               <h5>
                 <select name="company" value={company}
                 onChange={updateFilters} className='company'>
@@ -65,7 +83,7 @@ const colors = getUniqueValues(all_products, 'colors')
                   })}
                 </select>
               </h5>
-            </div>
+            </div> */}
         {/*end of companies*/}
         {/*colors*/}
                   <div className="form-control">
@@ -114,12 +132,22 @@ const colors = getUniqueValues(all_products, 'colors')
           </div>
           {/* end of shipping */}        
        </form>
-       <button type="button" className='clear-btn' onClick={clearFilters}>{' '} clear filters</button>
     </div>
+      <div className="clear-btn-wrapper">
+       <button type="button" className='clear-btn' onClick={clearFilters}>{' '} clear filters</button>
+        </div>              
+      
+
+        
   </Wrapper>
 }
 
 const Wrapper = styled.section`
+  .content form{
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-start;
+  }
   .form-control {
     margin-bottom: 1.25rem;
     h5 {
@@ -137,6 +165,11 @@ const Wrapper = styled.section`
     text-transform: capitalize;
   }
 
+  .brands-form{
+    height: 250px;
+    overflow-y: scroll;
+  }
+
   button {
     display: block;
     margin: 0.25em 0;
@@ -152,15 +185,16 @@ const Wrapper = styled.section`
   .active {
     border-color: var(--clr-grey-5);
   }
-  .company {
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
-    border-color: transparent;
-    padding: 0.25rem;
-  }
+  // .company {
+  //   background: var(--clr-grey-10);
+  //   border-radius: var(--radius);
+  //   border-color: transparent;
+  //   padding: 0.25rem;
+  // }
   .colors {
     display: flex;
     align-items: center;
+    flex-direction: column;
   }
   .color-btn {
     display: inline-block;
@@ -205,10 +239,24 @@ const Wrapper = styled.section`
     font-size: 1rem;
   }
   .clear-btn {
-    background: var(--clr-red-dark);
-    color: var(--clr-white);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius);
+    border-radius: 25px;
+    font-weight: 600;
+    padding: 0.2rem 1.6rem;
+    outline: none!important;
+    text-transform: capitalize;
+    display: inline-block;
+    border: 2px solid #f5554c;
+    background-color: #fff;
+    color:#f5554c;
+    margin-bottom:20px;
+  }
+  .clear-btn:hover{
+     color: #fff;
+     background-color:#f5554c;
+  }
+  .clear-btn-wrapper{
+    display: flex;
+    justify-content: flex-end;
   }
   @media (min-width: 768px) {
     .content {

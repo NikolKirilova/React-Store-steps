@@ -65,6 +65,9 @@ export const FilterProvider = ({ children }) => {
     if (name === 'category') {
       value = e.target.textContent
     }
+    if (name === 'company') {
+      value = e.target.textContent
+    }
     if (name === 'color'){
       value = e.target.dataset.color
     }
