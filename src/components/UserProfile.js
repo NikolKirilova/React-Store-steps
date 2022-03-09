@@ -1,4 +1,5 @@
 import ProfileForm from "./ProfileForm";
+import FormStepOne from "./FormStepOne";
 import styled from "styled-components";
 import React from "react";
 
@@ -7,7 +8,9 @@ const UserProfile = () => {
         <Wrapper>
  <section className="profile">
             <h1>Your User Profile</h1>
+            <FormStepOne />
             <ProfileForm/>
+
         </section>
         </Wrapper>
         

@@ -27,6 +27,12 @@ import HomeBlog from './HomeBlog'
 import HomeEditorial from './HomeEditorial'
 import HomeEditorialLeft from './HomeEditorialLeft'
 import Breadcrumbs from './Breadcrumbs'
+import FormStepOne from './FormStepOne'
+import FirstTab from './FirstTab'
+import SecondTab from './SecondTab'
+import FormStepTwo from './FormStepTwo'
+import FormStepThree from './FormStepThree'
+import FormStepFour from './FormStepFour'
 export {
   FeaturedProducts,
   Navbar,
@@ -56,5 +62,11 @@ export {
   HomeBlog,
   HomeEditorial,
   HomeEditorialLeft,
-  Breadcrumbs
+  Breadcrumbs,
+  FormStepOne,
+  FormStepTwo,
+  FirstTab,
+  SecondTab,
+  FormStepThree,
+  FormStepFour
 }
