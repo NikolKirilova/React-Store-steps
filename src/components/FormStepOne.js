@@ -6,8 +6,10 @@ import styled from "styled-components";
 import AuthContext from "../context/auth_context";
 import { FirstTab, SecondTab } from "../components";
 
-const FormStepOne = () => {
+const FormStepOne = (props) => {
   const history = useHistory();
+
+ 
   
 
   const authCtx = useContext(AuthContext);
@@ -29,11 +31,69 @@ const FormStepOne = () => {
     setActiveTab("tab2");
   };
 
-  const submitHandler = (event) => {
-    event.preventDefault();
+
+
+  const registerUserHandler =(userData)=>{
+    console.log(userData)
+    props.onSuccess(userData);
+    // fetch(
+    //   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAi1TLxgD9IkUz6kypN0VRbDGqalCWdPLM",
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       ...userData,
+    //       returnSecureToken: true,
+    //     }),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // )
+    //   .then((res) => {
+    //     // setIsLoading(false);
+    //     if (res.ok) {
+    //       return res.json();
+    //     } else {
+    //       return res.json().then((data) => {
+    //         //show an error modal
+    //         // console.log(data);
+    //         let errorMessage = "Authentication failed!";
+    //         if (data && data.error && data.error.message) {
+    //           errorMessage = data.error.message;
+    //         }
+    //         // alert(errorMessage);
+    //         throw new Error(errorMessage);
+    //       });
+    //     }
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     console.log(data.localId);
+    //     console.log(data.idToken);
+
+    //     const expirationTime = new Date(
+    //       new Date().getTime() + +data.expiresIn * 1000
+    //     );
+    //     authCtx.login(
+    //       data.idToken,
+    //       expirationTime.toISOString(),
+    //       data.email,
+    //       data.localId
+    //     );
+
+    //     // history.replace('/');
+    //   })
+    //   .catch((err) => {
+    //     alert(err.message);
+    //   });
+      
+  }
+
+  // const submitHandler = (event) => {
+  //   event.preventDefault();
   
 
-    setIsLoading(true);
+  //   setIsLoading(true);
     // axios({
     //   method: "post",
     //   url: "http://127.0.0.1:8000/api/users",
@@ -52,7 +112,7 @@ const FormStepOne = () => {
     //     console.log(error);
     //   }
     // );
-  };
+ 
 
   return (
     <Wrapper className="">
@@ -71,7 +131,7 @@ const FormStepOne = () => {
                 </button>
             </div>
           </div>
-            <div>{activeTab === "tab1" ? <FirstTab /> : <SecondTab />}  </div>
+            <div>{activeTab === "tab1" ? <FirstTab onRegisterUser={registerUserHandler}/> : <SecondTab />}  </div>
         </div>
       </section>
     </Wrapper>
@@ -165,15 +225,15 @@ const Wrapper = styled.section`
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: #9f5ccc;
-    border: 1px solid #9f5ccc;
+    background-color: #f5554c;
+    border: 1px solid #f5554c !important;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
   }
 
   .actions button:hover {
-    background-color: #873abb;
-    border-color: #873abb;
+    background-color: #f33328;;
+    border-color: #f33328;;
   }
 
   .actions .toggle {

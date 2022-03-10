@@ -179,8 +179,7 @@ const Wrapper = styled.section`
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: #9f5ccc;
-    border: 1px solid #9f5ccc;
+ 
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
   }
