@@ -6,7 +6,7 @@ import styled from "styled-components";
 import AuthContext from "../context/auth_context";
 import { FirstTab, SecondTab } from "../components";
 
-const FormStepOne = (props) => {
+const FormStepOne = () => {
   const history = useHistory();
 
  
@@ -31,63 +31,70 @@ const FormStepOne = (props) => {
     setActiveTab("tab2");
   };
 
+  const loginUserHandler = (userInfo)=>{    
+    axios('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAi1TLxgD9IkUz6kypN0VRbDGqalCWdPLM',{
+    method: "POST",  
+    data: {...userInfo, returnSecureToken:true},
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    
+    .then((res) => {
+      setIsLoading(false);
+      if (res.status === 200){
+         
+        console.log(res.data);
+        
+  
+        const expirationTime = new Date(new Date().getTime() + (+res.data.expiresIn * 1000));
+        authCtx.login(res.data.idToken, expirationTime.toISOString(), res.data.email,res.data.localId);
+       
+        
+        history.replace('/step-two');
 
+      }
+    })
+    .catch((err) => {
+      alert(err.message);
+    });
+  }
 
   const registerUserHandler =(userData)=>{
+    axios('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAi1TLxgD9IkUz6kypN0VRbDGqalCWdPLM',{
+      method: "POST",  
+      data: {...userData, returnSecureToken:true},
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        setIsLoading(false);
+        if (res.status === 200){
+           
+          console.log(res.data);
+          // console.log(res.data.localId);
+          // console.log(res.data.idToken);
+    
+          const expirationTime = new Date(new Date().getTime() + (+res.data.expiresIn * 1000));
+          authCtx.login(res.data.idToken, expirationTime.toISOString(), res.data.email,res.data.localId);
+         
+          
+          history.replace('/step-two');
+
+        }
+      })
+       
+      .catch((err) => {
+        alert(err.message);
+      });
+    
     console.log(userData)
-    props.onSuccess(userData);
-    // fetch(
-    //   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAi1TLxgD9IkUz6kypN0VRbDGqalCWdPLM",
-    //   {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       ...userData,
-    //       returnSecureToken: true,
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
-    // )
-    //   .then((res) => {
-    //     // setIsLoading(false);
-    //     if (res.ok) {
-    //       return res.json();
-    //     } else {
-    //       return res.json().then((data) => {
-    //         //show an error modal
-    //         // console.log(data);
-    //         let errorMessage = "Authentication failed!";
-    //         if (data && data.error && data.error.message) {
-    //           errorMessage = data.error.message;
-    //         }
-    //         // alert(errorMessage);
-    //         throw new Error(errorMessage);
-    //       });
-    //     }
-    //   })
-    //   .then((data) => {
-    //     console.log(data);
-    //     console.log(data.localId);
-    //     console.log(data.idToken);
-
-    //     const expirationTime = new Date(
-    //       new Date().getTime() + +data.expiresIn * 1000
-    //     );
-    //     authCtx.login(
-    //       data.idToken,
-    //       expirationTime.toISOString(),
-    //       data.email,
-    //       data.localId
-    //     );
-
-    //     // history.replace('/');
-    //   })
-    //   .catch((err) => {
-    //     alert(err.message);
-    //   });
+   
       
   }
+
+ 
 
   // const submitHandler = (event) => {
   //   event.preventDefault();
@@ -131,7 +138,7 @@ const FormStepOne = (props) => {
                 </button>
             </div>
           </div>
-            <div>{activeTab === "tab1" ? <FirstTab onRegisterUser={registerUserHandler}/> : <SecondTab />}  </div>
+            <div>{activeTab === "tab1" ? <FirstTab onRegisterUser={registerUserHandler} /> : <SecondTab  onLoginUser={loginUserHandler}/>}  </div>
         </div>
       </section>
     </Wrapper>

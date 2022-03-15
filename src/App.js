@@ -5,6 +5,7 @@ import AuthContext from './context/auth_context'
 import { Redirect } from 'react-router-dom'
 
 import { Home, Products, SingleProduct,About,Cart,Error,Checkout } from './pages'
+import StepTwoCheckout from './pages/StepTwoCheckout'
 
  
 function App() {
@@ -39,6 +40,9 @@ function App() {
       <Route exact path='/products/:id' children={<SingleProduct/>} />
       <Route exact path='/checkout'>
         <Checkout /> 
+      </Route>
+      <Route exact path='/step-two'>
+        <StepTwoCheckout /> 
       </Route>
       <Route  path='*'>
         <Error />
