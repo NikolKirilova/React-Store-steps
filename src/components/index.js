@@ -33,6 +33,8 @@ import SecondTab from './SecondTab'
 import FormStepTwo from './FormStepTwo'
 import FormStepThree from './FormStepThree'
 import FormStepFour from './FormStepFour'
+import OldAuthForm from './OldAuthForm'
+
 export {
   FeaturedProducts,
   Navbar,
@@ -68,5 +70,6 @@ export {
   FirstTab,
   SecondTab,
   FormStepThree,
-  FormStepFour
+  FormStepFour,
+  OldAuthForm
 }
